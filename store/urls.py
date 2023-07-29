@@ -13,7 +13,8 @@ urlpatterns = [
     path("createpayment", views.CreatePayment.as_view()),
     path("currentuser", views.CurrentUserView.as_view()),
     path("createorder", views.CreateOrder.as_view()),
-    path("checkpayment", views.CheckPayment.as_view())
+    path("checkpayment", views.CheckPayment.as_view()),
+    path("search", views.Search.as_view())
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root =settings.MEDIA_ROOT)

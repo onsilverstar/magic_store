@@ -27,6 +27,11 @@ SECRET_KEY = "django-insecure-rz=weq#einem8+mcno%b6f#dz1y-7(l_hxkka0+3gb)b*u^1te
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
 ALLOWED_HOSTS = []
 
 
@@ -56,8 +61,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
-CORS_ALLOW_CREDENTIALS = True
+# CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
+# CORS_ALLOW_CREDENTIALS = True
 
 # CORS_ALLOWED_ORIGINS = [
 #     "http://127.0.0.1:8000/",

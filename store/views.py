@@ -22,6 +22,14 @@ class Index(APIView):
         serializer = apiserialize.ProductSerializer(queryset, many=True, context={"request":request})
         print(serializer)
         return Response(serializer.data)
+    
+class Search(APIView):
+    def post(self, request):
+        queryset = models.Product.objects.filter(product_name = request.data["search"].capitalize())
+        serializer = apiserialize.ProductSerializer(queryset, many=True, context={"request":request})
+        print(serializer.data)
+        return Response(serializer.data)
+    
 class CreateUserAPI(APIView):
     # permission_classes = ("AllowAny",)
     # queryset = apiserialize.User.objects.get_or_create()
